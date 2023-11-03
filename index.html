@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Andrew Zhang Portfolio</title>
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/2a15df6090.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="header">
@@ -15,7 +16,6 @@
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li> 
-                        <li><a href="#">Services</a></li> 
                         <li><a href="#">Portfolio</a></li> 
                         <li><a href="#">Contact</a></li>  
                     </ul>
@@ -26,6 +26,7 @@
                 </div>
             </div>
         </div>
+        <!-- about section --> 
         <div id="about">
             <div class="container">
                 <div class = "row">
@@ -42,25 +43,25 @@
                             I invite you to explore my portfolio to learn more about how I can contribute to your team. Thank you and I look forward to connecting with you soon!
                         </p>
                         <div class="tab-titles">
-                            <p class="tab-links active-link">Skills</p>
-                            <p class="tab-links">Experience</p>
-                            <p class="tab-links">Education</p>
+                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab('education')">Education</p> 
                         </div>
-                        <div class="tab-contents">
+                        <div class="tab-contents active-tab" id="skills">
                             <ul>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
                             </ul>
                         </div>
-                        <div class="tab-contents">
+                        <div class="tab-contents" id="experience">
                             <ul>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
                             </ul>
                         </div>
-                        <div class="tab-contents">
+                        <div class="tab-contents" id="education">
                             <ul>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
@@ -71,5 +72,84 @@
                 </div>
             </div>
         </div>
+        <!-- portfolio -->
+        <div id="portfolio">
+            <div class = "container">
+                <h1 class="sub-title">My Projects</h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="images/work-1.png">
+                        <div class="layer">
+                            <h3>Social Media App</h3>
+                            <p>app does this and this blah blah</p>
+                            <a href="#"><i class="fa-solid fa-link fa-lg" style="color: #002d57;"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/work-2.png">
+                        <div class="layer">
+                            <h3>Wordle Web Game</h3>
+                            <p>interactive game of wordle</p>
+                            <a href="#"><i class="fa-solid fa-link fa-lg" style="color: #002d57;"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/work-3.png">
+                        <div class="layer">
+                            <h3>Blink Social Media App</h3>
+                            <p>app does this and this blah blah</p>
+                            <a href="#"><i class="fa-solid fa-link fa-lg" style="color: #002d57;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- contact section -->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fa-solid fa-envelope"></i> zhangandrew2@gmail.com</p>
+                        <p><i class="fa-solid fa-mobile"></i> (949)529-8128</p>
+                        <div class="social-icons">
+                            <a href="https://linkedin.com/in/zhangandrew2"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://github.com/zhangandrew2"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://facebook.com/zhangandrew03"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                        <a href="images/resume.pdf" download class="btn">CV/Resume</a>
+                    </div>
+                    <div class="contact-right">
+                        <form>
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                             <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                             <button type="submit" class="btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                 <p>Copyright © 2023 by Andrew Zhang</p>
+            </div>
+        </div>
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+
+            function opentab(tabname){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents){
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+
+        </script>
+
     </body>
 </html>
