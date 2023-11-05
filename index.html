@@ -13,16 +13,18 @@
             <div class="container">
                 <nav>
                     <img src="images/logo.png" class="logo">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li> 
-                        <li><a href="#">Portfolio</a></li> 
-                        <li><a href="#">Contact</a></li>  
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li> 
+                        <li><a href="#portfolio">Portfolio</a></li> 
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>  
                     </ul>
+                    <i class="fa-solid fa-square-caret-down" onclick="openmenu()"></i>
                 </nav>
                 <div class = "header-text">
-                    <p>Computer Science Major at UCLA</p>
-                    <h1>Hi, I'm <span>Andrew</span> Zhang!</h1>
+                    <p>Computer Science Student @ UCLA</p>
+                    <h1>Hi, I'm <span>Andrew</span> <br>Zhang!</h1>
                 </div>
             </div>
         </div>
@@ -49,23 +51,22 @@
                         </div>
                         <div class="tab-contents active-tab" id="skills">
                             <ul>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+                                <li><span>Frontend</span><br>Build websites using HTML/CSS, Javascript, React.js,</li>
+                                <li><span>Backend</span><br>Node.js, Express.js, SQL, MangoDB</li>
+                                <li><span>High-level Languages</span><br>C++, C, Python, Java</li>
                             </ul>
                         </div>
                         <div class="tab-contents" id="experience">
                             <ul>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+                                <li><span>UCLA Research Center</span><br><b>Student Researcher</b><br>Research field: Machine Learning Image Recognition</li>
+                                <li><span>BruinLabs</span><br><b>Lead Software Engineer</b><br>Creating and designing the prototype app + website for the startup’s outline using HTML, JS and CSS.</li>
+                                <li><span>CodeChampion</span><br><b>Co-Founder</b><br>Hold Bi-weekly workshops to teach students competitive programming in C++, java, or python</li>
                             </ul>
                         </div>
                         <div class="tab-contents" id="education">
                             <ul>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
-                                <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+                                <li><span>UCLA</span><br>Sep 2021- June 2025</li>
+                                <li><span>Irvine Valley College</span><br>2019-2023<br>Additional academic enrichment classes</li>
                             </ul>
                         </div>
                     </div>
@@ -80,8 +81,8 @@
                     <div class="work">
                         <img src="images/work-1.png">
                         <div class="layer">
-                            <h3>Social Media App</h3>
-                            <p>app does this and this blah blah</p>
+                            <h3>Hold'em Poker Game</h3>
+                            <p>An online multiplayer poker game with live chatroom!</p>
                             <a href="#"><i class="fa-solid fa-link fa-lg" style="color: #002d57;"></i></a>
                         </div>
                     </div>
@@ -89,15 +90,15 @@
                         <img src="images/work-2.png">
                         <div class="layer">
                             <h3>Wordle Web Game</h3>
-                            <p>interactive game of wordle</p>
+                            <p>interactive game of Wordle!</p>
                             <a href="#"><i class="fa-solid fa-link fa-lg" style="color: #002d57;"></i></a>
                         </div>
                     </div>
                     <div class="work">
                         <img src="images/work-3.png">
                         <div class="layer">
-                            <h3>Blink Social Media App</h3>
-                            <p>app does this and this blah blah</p>
+                            <h3>B-Link Social Media App</h3>
+                            <p>Twitter Mock website for UCLA Community (Bruin Link)</p>
                             <a href="#"><i class="fa-solid fa-link fa-lg" style="color: #002d57;"></i></a>
                         </div>
                     </div>
@@ -118,19 +119,19 @@
                             <a href="https://github.com/zhangandrew2"><i class="fa-brands fa-github"></i></a>
                             <a href="https://facebook.com/zhangandrew03"><i class="fa-brands fa-facebook"></i></a>
                         </div>
-                        <a href="images/resume.pdf" download class="btn">CV/Resume</a>
+                        <a href="images/AndrewZhang2025Resume.pdf" download class="btn">CV/Resume</a>
                     </div>
                     <div class="contact-right">
-                        <form>
+                        <form name="submit-to-google-sheet">
                             <input type="text" name="Name" placeholder="Your Name" required>
-                            <input type="email" name="email" placeholder="Your Email" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
                              <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                              <button type="submit" class="btn">Submit</button>
                         </form>
+                        <span id="msg"></span>
                     </div>
                 </div>
-            </div>
-            <div class="copyright">
+            </div> 
                  <p>Copyright © 2023 by Andrew Zhang</p>
             </div>
         </div>
@@ -149,7 +150,32 @@
                 document.getElementById(tabname).classList.add("active-tab");
             }
 
-        </script>
+            var sidemenu = document.getElementById("sidemenu");
 
+            function openmenu(){
+                sidemenu.style.right = "0";
+            }
+            function closemenu(){
+                sidemenu.style.right = "-200px";
+            }
+        </script>
+        <!-- script for submitting to google sheet-->
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycby3C6G4netmzTiQKDkRzRl4hBcwK98S_WEOjEBPqcRezpYrcT3YxivhEHCATfWmjyhwDg/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+        
+            form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {msg.innerHTML= "Response successfully submitted!"
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
     </body>
 </html>
