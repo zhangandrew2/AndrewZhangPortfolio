@@ -118,17 +118,22 @@ nav ul li a:hover::after{
 }
 .tab-contents ul li{
     list-style: none;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 .tab-contents ul li span{
     color:rgb(123, 188, 252);
-    font-size:16px;
+    font-size:22px;
 }
 .tab-contents{
     display: none;
 }
 .tab-contents.active-tab{
     display: block;
+}
+.tab-contents ul.job-description li {
+    list-style-type: disc; /* Enable bullets for job descriptions */
+    margin-left: 20px; /* Add some indentation to the bullets */
+    color: #ababab; /* Ensure the bullets and text are visible on the black background */
 }
 
 /* portfolio */
@@ -267,7 +272,11 @@ nav ul li a:hover::after{
     background: #262626;
     font-weight: 300;
     margin-top:20px;   
- }
+ } 
+ .job-description {
+    list-style-type: disc;
+    margin-left: 10px;
+}
 
  /* section for small screen sizes */
 
