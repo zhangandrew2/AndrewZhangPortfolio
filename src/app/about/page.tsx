@@ -1,0 +1,441 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import {
+  Code,
+  Server,
+  Database,
+  Smartphone,
+  Briefcase,
+  GraduationCap,
+  Calendar,
+  MapPin,
+  Award
+} from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
+
+export default function About() {
+  const [activeTab, setActiveTab] = useState("skills");
+
+  const tabs = [
+    { id: "skills", label: "Skills", icon: Code },
+    { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "education", label: "Education", icon: GraduationCap }
+  ];
+
+  const skills = [
+    {
+      category: "Frontend",
+      icon: Code,
+      technologies: [
+        "HTML/CSS",
+        "JavaScript",
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ]
+    },
+    {
+      category: "Backend",
+      icon: Server,
+      technologies: [
+        "Node.js",
+        "Express.js",
+        "Django",
+        "FastAPI",
+        "REST APIs",
+        "GraphQL"
+      ]
+    },
+    {
+      category: "Programming Languages",
+      icon: Code,
+      technologies: [
+        "C++",
+        "C",
+        "Python",
+        "Java",
+        "Swift",
+        "JavaScript",
+        "TypeScript"
+      ]
+    },
+    {
+      category: "Database Systems",
+      icon: Database,
+      technologies: [
+        "MongoDB",
+        "SQL",
+        "PostgreSQL",
+        "Firebase",
+        "Redis",
+        "MySQL"
+      ]
+    },
+    {
+      category: "Mobile Development",
+      icon: Smartphone,
+      technologies: [
+        "Swift",
+        "React Native",
+        "iOS Development",
+        "Android Basics"
+      ]
+    }
+  ];
+
+  const experiences = [
+    {
+      company: "Tailorflow AI",
+      position: "Software Engineer Intern",
+      period: "2024",
+      location: "Remote",
+      description: [
+        "Implemented dynamic nested routing with Next.js app router for the onboarding flow—using loading states, route guards, server-side rendering, and code-splitting—to improve page load times by 35% and decrease bounce rates by 15%.",
+        "Developed reusable UI components (dynamic checklists and progress tracking) with shadcn/ui for the chatbot interface and onboarding dashboard, boosting user engagement by 2x and reduced UI-related bug reports by 40%."
+      ]
+    },
+    {
+      company: "Reality AI Lab",
+      position: "Software Engineer Intern",
+      period: "2024",
+      location: "Los Angeles, CA",
+      description: [
+        "Integrated FastAPI endpoints with Google Cloud Vertex AI, boosting data throughput and reducing API response latency by 25%",
+        "Developed automatic outline-to-slide generator with Next.js, React, and jsPDF, completely eliminating manual slide creation time",
+        "Implemented advanced state management with Redux Toolkit onto Next.js/React front-end, reducing initial load times by 35%"
+      ]
+    },
+    {
+      company: "OpenQQuantify",
+      position: "Software Engineer Intern",
+      period: "2023",
+      location: "Remote",
+      description: [
+        "Developed Python scripts integrated with OpenAI APIs to automate the processing of large datasets, increasing efficiency by 50%",
+        "Conducted validation tests with Jest and PyTest, achieving a 98% accuracy rate in data outputs generated from the AI-driven systems",
+        "Redesigned PostgreSQL queries and optimized query indexing to increase data retrieval speed by 30% across 10,000+ records"
+      ]
+    },
+    {
+      company: "UCLA Research Center",
+      position: "Student Researcher",
+      period: "2023",
+      location: "Los Angeles, CA",
+      description: [
+        "Researched and implemented deep learning techniques (Convolutional Neural Networks), improving image recognition accuracy by 25%",
+        "Preprocessed and normalized image datasets for training and test sets, enhancing the model's training efficiency by 120%",
+        "Optimized CNN models to improve autonomous navigation accuracy by 1.7x and optimized delivery efficiency by 1.5x"
+      ]
+    },
+    {
+      company: "BruinLabs",
+      position: "Lead Software Engineer",
+      period: "2022-2023",
+      location: "Los Angeles, CA",
+      description: [
+        "Developed a prototype app + website using HTML, CSS, JavaScript, and Swift, creating a functional demo capturing investor interest",
+        "Utilized Git version control to streamline workflows, cutting merge conflicts by 50% and expediting feature integration by 170%",
+        "Implemented real-time notifications and dynamic content updates, reducing data latency by 3x and boosting user engagement by 2.7x"
+      ]
+    }
+  ];
+
+  const education = {
+    school: "University of California, Los Angeles (UCLA)",
+    degree: "Bachelor of Science in Computer Science",
+    period: "Sep 2021 - Dec 2025",
+    location: "Los Angeles, CA",
+    courses: [
+      "Data Structures and Algorithms",
+      "Programming Languages",
+      "Operating Systems",
+      "Computer Networks",
+      "Database Systems",
+      "Software Engineering",
+      "Machine Learning",
+      "Computer Graphics"
+    ],
+    achievements: [
+      "Dean's Honor List",
+      "Computer Science Honors Program",
+      "ACM Chapter Member",
+      "UCLA DevX Member"
+    ]
+  };
+
+  const tabVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 }
+  };
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="section-padding-xl page-padding">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <AnimatedSection direction="left">
+              <div className="relative">
+                <div className="relative w-full max-w-md mx-auto">
+                  <div className="aspect-square rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl">
+                    <Image
+                      src="/user.png"
+                      alt="Andrew Zhang"
+                      width={500}
+                      height={500}
+                      className="object-cover w-full h-full"
+                      priority
+                    />
+                  </div>
+                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/20 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary/20 rounded-full blur-xl"></div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection direction="right">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                  About <span className="gradient-text">Me</span>
+                </h1>
+                <div className="space-y-4 text-lg text-muted leading-relaxed">
+                  <p>
+                    My name is Andrew Zhang and I am currently a junior majoring
+                    in Computer Science at the University of California, Los
+                    Angeles (UCLA). I am a dedicated and enthusiastic software
+                    engineer with a genuine passion for solving complex problems
+                    through innovative software solutions.
+                  </p>
+                  <p>
+                    My academic journey at UCLA has provided me with a solid
+                    foundation in computer science principles and has allowed me
+                    to hone my technical skills in various areas of software
+                    development. Throughout my time as a student, I have had the
+                    opportunity to work on a variety of projects that have
+                    further developed my skills, expanded my knowledge base, and
+                    taught me valuable lessons in teamwork, communication, and
+                    problem-solving.
+                  </p>
+                  <p>
+                    I am always eager to embrace new challenges and learn new
+                    technologies. My adaptability and determination to succeed
+                    have allowed me to thrive in project-based environments. I
+                    invite you to explore my portfolio to learn more about how I
+                    can contribute to your team.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Tabs Section */}
+      <section className="section-padding-xl bg-card-bg/30">
+        <div className="container-custom">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              My <span className="gradient-text">Journey</span>
+            </h2>
+            <p className="text-lg text-muted max-w-2xl mx-auto">
+              Explore my technical skills, professional experience, and
+              educational background.
+            </p>
+          </AnimatedSection>
+
+          {/* Tab Navigation */}
+          <div className="flex flex-wrap justify-center mb-16 border-b border-border">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-6 py-4 font-semibold text-lg transition-all duration-300 border-b-2 ${
+                  activeTab === tab.id
+                    ? "text-primary border-primary"
+                    : "text-muted border-transparent hover:text-foreground hover:border-border"
+                }`}
+              >
+                <tab.icon className="w-5 h-5" />
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <AnimatePresence mode="wait">
+            {/* Skills Tab */}
+            {activeTab === "skills" && (
+              <motion.div
+                key="skills"
+                variants={tabVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.5 }}
+              >
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={skill.category}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="card p-6 h-full hover:border-primary/50"
+                    >
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="p-2 bg-primary/20 rounded-lg">
+                          <skill.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <h3 className="text-xl font-semibold">
+                          {skill.category}
+                        </h3>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {skill.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* Experience Tab */}
+            {activeTab === "experience" && (
+              <motion.div
+                key="experience"
+                variants={tabVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.5 }}
+                className="space-y-12"
+              >
+                {experiences.map((exp, index) => (
+                  <motion.div
+                    key={exp.company}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="card p-8 hover:border-primary/50"
+                  >
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                      <div>
+                        <h3 className="text-2xl font-bold text-primary">
+                          {exp.company}
+                        </h3>
+                        <h4 className="text-xl font-semibold text-foreground">
+                          {exp.position}
+                        </h4>
+                      </div>
+                      <div className="text-muted mt-2 md:mt-0 md:text-right">
+                        <div className="flex items-center gap-2 justify-start md:justify-end">
+                          <Calendar className="w-4 h-4" />
+                          <span>{exp.period}</span>
+                        </div>
+                        <div className="flex items-center gap-2 justify-start md:justify-end mt-1">
+                          <MapPin className="w-4 h-4" />
+                          <span>{exp.location}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <ul className="space-y-2">
+                      {exp.description.map((desc, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-muted"
+                        >
+                          <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                          <span>{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+
+            {/* Education Tab */}
+            {activeTab === "education" && (
+              <motion.div
+                key="education"
+                variants={tabVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.5 }}
+              >
+                <div className="card p-8 max-w-4xl mx-auto">
+                  <div className="text-center mb-8">
+                    <h3 className="text-3xl font-bold text-primary mb-2">
+                      {education.school}
+                    </h3>
+                    <h4 className="text-xl font-semibold text-foreground mb-4">
+                      {education.degree}
+                    </h4>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-muted">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span>{education.period}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4" />
+                        <span>{education.location}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h5 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                        <Code className="w-5 h-5 text-primary" />
+                        Relevant Courses
+                      </h5>
+                      <div className="space-y-2">
+                        {education.courses.map((course) => (
+                          <div key={course} className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-primary rounded-full"></div>
+                            <span className="text-muted">{course}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                        <Award className="w-5 h-5 text-primary" />
+                        Achievements
+                      </h5>
+                      <div className="space-y-2">
+                        {education.achievements.map((achievement) => (
+                          <div
+                            key={achievement}
+                            className="flex items-center gap-3"
+                          >
+                            <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                            <span className="text-muted">{achievement}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+    </div>
+  );
+}
