@@ -150,17 +150,23 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="section-padding-lg page-padding">
         <div className="container-custom text-center">
-          <AnimatedSection>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               My <span className="gradient-text">Portfolio</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-              Here&apos;s a collection of projects I&apos;ve worked on,
-              showcasing my skills in full-stack development, API design, mobile
-              applications, and more. Each project represents a unique challenge
-              and learning experience.
-            </p>
-          </AnimatedSection>
+            <div className="w-full flex justify-center">
+              <p className="text-lg md:text-xl text-muted max-w-3xl leading-relaxed !text-center">
+                Here&apos;s a collection of projects I&apos;ve worked on,
+                showcasing my skills in full-stack development, API design,
+                mobile applications, and more. Each project represents a unique
+                challenge and learning experience.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -173,11 +179,11 @@ export default function Portfolio() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  className={
                     selectedCategory === category
-                      ? "bg-primary text-white shadow-lg"
-                      : "bg-card-bg text-muted hover:text-foreground hover:bg-primary/20 border border-border"
-                  }`}
+                      ? "btn-primary px-8 py-3"
+                      : "btn-outline px-8 py-3"
+                  }
                 >
                   {category}
                 </button>
@@ -200,7 +206,7 @@ export default function Portfolio() {
               <motion.div
                 key={project.id}
                 variants={projectVariants}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1.5 }}
                 className="group"
               >
                 <div className="card h-full overflow-hidden hover:border-primary/50">
@@ -343,16 +349,19 @@ export default function Portfolio() {
       {/* Call to Action */}
       <section className="section-padding-lg">
         <div className="container-custom text-center">
-          <AnimatedSection>
+          <AnimatedSection className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Interested in{" "}
               <span className="gradient-text">Collaborating?</span>
             </h2>
-            <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
-              I&apos;m always excited to work on new projects and bring
-              innovative ideas to life. Let&apos;s create something amazing
-              together!
-            </p>
+            <div className="w-full flex justify-center">
+              <p className="text-lg text-muted mb-8 max-w-2xl mx-auto text-center">
+                I&apos;m always excited to work on new projects and bring
+                innovative ideas to life. Let&apos;s create something amazing
+                together!
+              </p>
+            </div>
+            <div className="h-12 md:h-16"></div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/contact" className="btn-primary px-8 py-4 text-lg">
                 Get In Touch

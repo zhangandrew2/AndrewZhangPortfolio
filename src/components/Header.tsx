@@ -1,29 +1,30 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/portfolio', label: 'Portfolio' },
-    { href: '/contact', label: 'Contact' },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/contact", label: "Contact" }
   ];
 
   const toggleMobileMenu = () => {
@@ -36,30 +37,20 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'glass backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
+        isScrolled ? "glass backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="container-custom">
-        <nav className="flex items-center justify-between py-6">
+        <nav className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="relative w-12 h-12 overflow-hidden rounded-full">
-              <Image
-                src="/logo.png"
-                alt="Andrew Zhang Logo"
-                fill
-                className="object-cover transition-transform duration-300 hover:scale-110"
-              />
-            </div>
-            <span className="text-xl font-bold gradient-text hidden sm:block">
+          <Link href="/" className="flex items-center">
+            <span className="text-xl font-bold gradient-text">
               Andrew Zhang
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center gap-x-16">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -69,10 +60,21 @@ const Header = () => {
               >
                 <Link
                   href={link.href}
-                  className="relative text-foreground hover:text-primary transition-colors duration-300 font-medium group"
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  className={`relative transition-colors duration-300 font-medium group focus:outline-none focus-visible:outline-none ${
+                    pathname === link.href
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
+                  }`}
                 >
                   {link.label}
-                  <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                  <span
+                    className={`absolute left-0 bottom-0 h-0.5 bg-primary transition-all duration-300 ${
+                      pathname === link.href
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
                 </Link>
               </motion.div>
             ))}
@@ -98,7 +100,7 @@ const Header = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden glass backdrop-blur-md border-t border-border"

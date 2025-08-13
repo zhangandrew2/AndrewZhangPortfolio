@@ -1,32 +1,32 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right';
+  direction?: "up" | "down" | "left" | "right";
   duration?: number;
 }
 
-const AnimatedSection = ({ 
-  children, 
-  className = '', 
-  delay = 0, 
-  direction = 'up',
+const AnimatedSection = ({
+  children,
+  className = "",
+  delay = 0,
+  direction = "up",
   duration = 0.6
 }: AnimatedSectionProps) => {
   const getInitialPosition = () => {
     switch (direction) {
-      case 'up':
+      case "up":
         return { opacity: 0, y: 50 };
-      case 'down':
+      case "down":
         return { opacity: 0, y: -50 };
-      case 'left':
+      case "left":
         return { opacity: 0, x: -50 };
-      case 'right':
+      case "right":
         return { opacity: 0, x: 50 };
       default:
         return { opacity: 0, y: 50 };
@@ -35,11 +35,11 @@ const AnimatedSection = ({
 
   const getAnimatePosition = () => {
     switch (direction) {
-      case 'up':
-      case 'down':
+      case "up":
+      case "down":
         return { opacity: 1, y: 0 };
-      case 'left':
-      case 'right':
+      case "left":
+      case "right":
         return { opacity: 1, x: 0 };
       default:
         return { opacity: 1, y: 0 };
@@ -50,12 +50,12 @@ const AnimatedSection = ({
     <motion.div
       initial={getInitialPosition()}
       whileInView={getAnimatePosition()}
-      transition={{ 
+      transition={{
         duration,
         delay,
         ease: [0.25, 0.46, 0.45, 0.94]
       }}
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, amount: 0.01, margin: "200px 0px 200px 0px" }}
       className={className}
     >
       {children}

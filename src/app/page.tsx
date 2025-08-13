@@ -6,8 +6,8 @@ import Link from "next/link";
 import {
   ArrowDown,
   Download,
-  Github,
-  Linkedin,
+  GithubIcon,
+  LinkedinIcon,
   ExternalLink
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -80,17 +80,18 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-lg md:text-xl text-muted mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-muted mb-12 max-w-2xl mx-auto leading-relaxed !text-center"
           >
             A passionate software engineer dedicated to solving complex problems
             through innovative solutions and cutting-edge technology.
           </motion.p>
+          <div className="h-12 md:h-10"></div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <Link
               href="/portfolio"
@@ -108,41 +109,43 @@ export default function Home() {
               <Download className="w-5 h-5" />
             </Link>
           </motion.div>
+          <div className="h-12 md:h-14"></div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1.3 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="flex justify-center space-x-8 mb-16"
+            className="flex justify-center gap-x-5 md:space-x-16"
           >
             <motion.a
               href="https://github.com/zhangandrew2"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full glass hover:scale-110 transition-all duration-300"
-              whileHover={{ scale: 1.1 }}
+              className="p-3 rounded-full glass hover:scale-120 transition-all duration-300"
+              whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Github className="w-6 h-6 text-foreground" />
+              <GithubIcon className="w-6 h-6 text-foreground" />
             </motion.a>
             <motion.a
               href="https://linkedin.com/in/zhangandrew2"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full glass hover:scale-110 transition-all duration-300"
-              whileHover={{ scale: 1.1 }}
+              className="p-3 rounded-full glass hover:scale-120 transition-all duration-300"
+              whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Linkedin className="w-6 h-6 text-foreground" />
+              <LinkedinIcon className="w-6 h-6 text-foreground" />
             </motion.a>
           </motion.div>
+          <div className="h-12 md:h-16"></div>
 
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}
             onClick={scrollToNext}
-            className="animate-bounce p-4 rounded-full hover:bg-primary/20 transition-colors duration-300 mt-8"
+            className="animate-bounce p-4 rounded-full hover:bg-primary/20 transition-colors duration-300"
             aria-label="Scroll to next section"
           >
             <ArrowDown className="w-6 h-6 text-primary" />
@@ -157,20 +160,22 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               About <span className="gradient-text">Me</span>
             </h2>
-            <p className="text-lg text-muted max-w-3xl mx-auto leading-relaxed">
-              I&apos;m a junior at UCLA majoring in Computer Science with a
-              genuine passion for solving complex problems through innovative
-              software solutions. My academic journey has provided me with a
-              solid foundation in computer science principles and allowed me to
-              hone my technical skills across various areas of software
-              development.
-            </p>
+            <div className="w-full flex justify-center">
+              <p className="text-lg text-muted max-w-3xl leading-relaxed !text-center">
+                I&apos;m a senior at UCLA majoring in Computer Science with a
+                genuine passion for solving complex problems through innovative
+                software solutions. My academic journey has provided me with a
+                solid foundation in computer science principles and allowed me
+                to hone my technical skills across various areas of software
+                development.
+              </p>
+            </div>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-8">
             <AnimatedSection delay={0.2} className="text-center">
               <div className="glass rounded-lg p-10 card hover:border-primary/50">
-                <div className="text-4xl font-bold gradient-text mb-4">50+</div>
+                <div className="text-4xl font-bold gradient-text mb-4">20+</div>
                 <h3 className="text-xl font-semibold mb-2">
                   Projects Completed
                 </h3>
@@ -183,7 +188,7 @@ export default function Home() {
 
             <AnimatedSection delay={0.4} className="text-center">
               <div className="glass rounded-lg p-10 card hover:border-primary/50">
-                <div className="text-4xl font-bold gradient-text mb-4">5+</div>
+                <div className="text-4xl font-bold gradient-text mb-4">3+</div>
                 <h3 className="text-xl font-semibold mb-2">Internships</h3>
                 <p className="text-muted">
                   Professional experience at leading tech companies and
@@ -213,10 +218,12 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Featured <span className="gradient-text">Projects</span>
             </h2>
-            <p className="text-lg text-muted max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and
-              experience.
-            </p>
+            <div className="w-full flex justify-center">
+              <p className="text-lg text-muted max-w-2xl text-center">
+                Here are some of my recent projects that showcase my skills and
+                experience.
+              </p>
+            </div>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
@@ -276,7 +283,11 @@ export default function Home() {
           </div>
 
           <AnimatedSection className="text-center">
-            <Link href="/portfolio" className="btn-primary px-8 py-4 text-lg">
+            <div className="h-12 md:h-10"></div>
+            <Link
+              href="/portfolio"
+              className="btn-primary px-8 py-4 text-lg inline-block"
+            >
               View All Projects
             </Link>
           </AnimatedSection>
@@ -290,12 +301,18 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Work <span className="gradient-text">Together?</span>
             </h2>
-            <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
-              I&apos;m always excited to take on new challenges and collaborate
-              on innovative projects. Let&apos;s create something amazing
-              together!
-            </p>
-            <Link href="/contact" className="btn-primary px-8 py-4 text-lg">
+            <div className="w-full flex justify-center">
+              <p className="text-lg text-muted mb-8 max-w-2xl mx-auto !text-center">
+                I&apos;m always excited to take on new challenges and
+                collaborate on innovative projects. Let&apos;s create something
+                amazing together!
+              </p>
+            </div>
+            <div className="h-12 md:h-10"></div>
+            <Link
+              href="/contact"
+              className="btn-primary px-8 py-4 text-lg inline-block"
+            >
               Get In Touch
             </Link>
           </AnimatedSection>

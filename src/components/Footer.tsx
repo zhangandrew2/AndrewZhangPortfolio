@@ -1,41 +1,41 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Github, Linkedin, Facebook, Mail, Phone } from 'lucide-react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Github, Linkedin, Facebook, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
     {
-      href: 'https://linkedin.com/in/zhangandrew2',
+      href: "https://linkedin.com/in/zhangandrew2",
       icon: Linkedin,
-      label: 'LinkedIn',
-      color: 'hover:text-blue-500'
+      label: "LinkedIn",
+      color: "hover:text-blue-500"
     },
     {
-      href: 'https://github.com/zhangandrew2',
+      href: "https://github.com/zhangandrew2",
       icon: Github,
-      label: 'GitHub',
-      color: 'hover:text-gray-400'
+      label: "GitHub",
+      color: "hover:text-gray-400"
     },
     {
-      href: 'https://facebook.com/zhangandrew03',
+      href: "https://facebook.com/zhangandrew03",
       icon: Facebook,
-      label: 'Facebook',
-      color: 'hover:text-blue-600'
+      label: "Facebook",
+      color: "hover:text-blue-600"
     },
     {
-      href: 'mailto:zhangandrew2@gmail.com',
+      href: "mailto:zhangandrew2@gmail.com",
       icon: Mail,
-      label: 'Email',
-      color: 'hover:text-red-500'
+      label: "Email",
+      color: "hover:text-red-500"
     },
     {
-      href: 'tel:+19495298128',
+      href: "tel:+19495298128",
       icon: Phone,
-      label: 'Phone',
-      color: 'hover:text-green-500'
-    },
+      label: "Phone",
+      color: "hover:text-green-500"
+    }
   ];
 
   return (
@@ -54,8 +54,10 @@ const Footer = () => {
               Andrew Zhang
             </h3>
             <p className="text-muted text-sm leading-relaxed">
-              Computer Science Student @ UCLA<br />
-              Software Engineer & Full-Stack Developer<br />
+              Computer Science Student @ UCLA
+              <br />
+              Software Engineer & Full-Stack Developer
+              <br />
               Building innovative solutions through code.
             </p>
           </motion.div>
@@ -71,20 +73,36 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-foreground mb-4">
               Quick Links
             </h4>
-            <div className="flex flex-col space-y-2">
-              <Link href="/" className="text-muted hover:text-primary transition-colors duration-300">
+            <div className="inline-grid grid-cols-2 gap-x-5 justify-items-start mx-auto md:mx-0">
+              <Link
+                href="/"
+                className="text-muted hover:text-primary transition-colors duration-300"
+              >
                 Home
               </Link>
-              <Link href="/about" className="text-muted hover:text-primary transition-colors duration-300">
+              <Link
+                href="/about"
+                className="text-muted hover:text-primary transition-colors duration-300"
+              >
                 About
               </Link>
-              <Link href="/portfolio" className="text-muted hover:text-primary transition-colors duration-300">
+              <Link
+                href="/portfolio"
+                className="text-muted hover:text-primary transition-colors duration-300"
+              >
                 Portfolio
               </Link>
-              <Link href="/contact" className="text-muted hover:text-primary transition-colors duration-300">
+              <Link
+                href="/contact"
+                className="text-muted hover:text-primary transition-colors duration-300"
+              >
                 Contact
               </Link>
-              <a href="/AndrewZhang2025Resume.pdf" download className="text-muted hover:text-primary transition-colors duration-300">
+              <a
+                href="/AndrewZhang2025Resume.pdf"
+                download
+                className="text-muted hover:text-primary transition-colors duration-300"
+              >
                 Resume
               </a>
             </div>
@@ -101,7 +119,8 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-foreground mb-4">
               Connect
             </h4>
-            <div className="flex justify-center md:justify-end space-x-6 mb-6">
+            <div className="h-12 md:h-2"></div>
+            <div className="flex justify-center md:justify-end mb-4 gap-x-3">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}

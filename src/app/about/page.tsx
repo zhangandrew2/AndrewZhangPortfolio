@@ -7,7 +7,6 @@ import {
   Code,
   Server,
   Database,
-  Smartphone,
   Briefcase,
   GraduationCap,
   Calendar,
@@ -51,7 +50,7 @@ export default function About() {
       ]
     },
     {
-      category: "Programming Languages",
+      category: "Languages",
       icon: Code,
       technologies: [
         "C++",
@@ -164,7 +163,11 @@ export default function About() {
       <section className="section-padding-xl page-padding">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <AnimatedSection direction="left">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="relative">
                 <div className="relative w-full max-w-md mx-auto">
                   <div className="aspect-square rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl">
@@ -181,9 +184,13 @@ export default function About() {
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary/20 rounded-full blur-xl"></div>
                 </div>
               </div>
-            </AnimatedSection>
+            </motion.div>
 
-            <AnimatedSection direction="right">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6">
                   About <span className="gradient-text">Me</span>
@@ -216,7 +223,7 @@ export default function About() {
                   </p>
                 </div>
               </div>
-            </AnimatedSection>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -224,18 +231,25 @@ export default function About() {
       {/* Tabs Section */}
       <section className="section-padding-xl bg-card-bg/30">
         <div className="container-custom">
-          <AnimatedSection className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               My <span className="gradient-text">Journey</span>
             </h2>
-            <p className="text-lg text-muted max-w-2xl mx-auto">
-              Explore my technical skills, professional experience, and
-              educational background.
-            </p>
-          </AnimatedSection>
+            <div className="w-full flex justify-center">
+              <p className="text-lg text-muted max-w-2xl !text-center">
+                Explore my technical skills, professional experience, and
+                educational background.
+              </p>
+            </div>
+          </motion.div>
 
           {/* Tab Navigation */}
-          <div className="flex flex-wrap justify-center mb-16 border-b border-border">
+          <div className="flex flex-wrap justify-center mb-16 border-b border-border gap-x-6">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -271,7 +285,7 @@ export default function About() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="card p-6 h-full hover:border-primary/50"
+                      className="card p-8 lg:p-10 h-full hover:border-primary/50"
                     >
                       <div className="flex items-center gap-3 mb-6">
                         <div className="p-2 bg-primary/20 rounded-lg">
@@ -314,39 +328,41 @@ export default function About() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="card p-8 hover:border-primary/50"
+                    className="card hover:border-primary/50"
                   >
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-primary">
-                          {exp.company}
-                        </h3>
-                        <h4 className="text-xl font-semibold text-foreground">
-                          {exp.position}
-                        </h4>
-                      </div>
-                      <div className="text-muted mt-2 md:mt-0 md:text-right">
-                        <div className="flex items-center gap-2 justify-start md:justify-end">
-                          <Calendar className="w-4 h-4" />
-                          <span>{exp.period}</span>
+                    <div className="p-10 lg:p-12 xl:p-16">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div>
+                          <h3 className="text-2xl font-bold text-primary">
+                            {exp.company}
+                          </h3>
+                          <h4 className="text-xl font-semibold text-foreground">
+                            {exp.position}
+                          </h4>
                         </div>
-                        <div className="flex items-center gap-2 justify-start md:justify-end mt-1">
-                          <MapPin className="w-4 h-4" />
-                          <span>{exp.location}</span>
+                        <div className="text-muted mt-2 md:mt-0 md:text-right">
+                          <div className="flex items-center gap-2 justify-start md:justify-end">
+                            <Calendar className="w-4 h-4" />
+                            <span>{exp.period}</span>
+                          </div>
+                          <div className="flex items-center gap-2 justify-start md:justify-end mt-1">
+                            <MapPin className="w-4 h-4" />
+                            <span>{exp.location}</span>
+                          </div>
                         </div>
                       </div>
+                      <ul className="space-y-3 mt-6">
+                        {exp.description.map((desc, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-4 text-muted"
+                          >
+                            <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="pr-4">{desc}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="space-y-2">
-                      {exp.description.map((desc, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 text-muted"
-                        >
-                          <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                          <span>{desc}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </motion.div>
                 ))}
               </motion.div>
@@ -362,7 +378,7 @@ export default function About() {
                 exit="exit"
                 transition={{ duration: 0.5 }}
               >
-                <div className="card p-8 max-w-4xl mx-auto">
+                <div className="card p-10 lg:p-12 max-w-4xl mx-auto">
                   <div className="text-center mb-8">
                     <h3 className="text-3xl font-bold text-primary mb-2">
                       {education.school}

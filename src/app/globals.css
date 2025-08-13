@@ -440,8 +440,8 @@ h3 {
   }
 }
 
-/* Focus styles for accessibility */
-*:focus {
+/* Focus styles for accessibility - only show for keyboard navigation */
+*:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }

@@ -116,17 +116,24 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="section-padding-xl page-padding">
         <div className="container-custom text-center">
-          <AnimatedSection>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-center"
+          >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Get In <span className="gradient-text">Touch</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-              I&apos;m always excited to connect with fellow developers,
-              potential collaborators, and anyone interested in discussing
-              technology, opportunities, or innovative projects. Let&apos;s
-              start a conversation!
-            </p>
-          </AnimatedSection>
+            <div className="w-full flex justify-center">
+              <p className="text-lg md:text-xl text-muted max-w-3xl leading-relaxed !text-center">
+                I&apos;m always excited to connect with fellow developers,
+                potential collaborators, and anyone interested in discussing
+                technology, opportunities, or innovative projects. Let&apos;s
+                start a conversation!
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -135,20 +142,23 @@ export default function Contact() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Information */}
-            <AnimatedSection direction="left">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+            >
               <div>
                 <h2 className="text-3xl font-bold mb-8">
                   Let&apos;s <span className="gradient-text">Connect</span>
                 </h2>
 
                 <div className="space-y-6 mb-8">
-                  {contactInfo.map((info) => (
+                  {contactInfo.map((info, index) => (
                     <motion.div
                       key={info.label}
                       initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5 }}
-                      viewport={{ once: true }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.2 }}
                       className="flex items-center gap-4 p-4 rounded-lg glass hover:border-primary/50 transition-colors duration-300"
                     >
                       <div className={`p-3 rounded-lg bg-primary/20`}>
@@ -172,11 +182,12 @@ export default function Contact() {
                     </motion.div>
                   ))}
                 </div>
+                <div className="h-12 md:h-10"></div>
 
                 {/* Social Links */}
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
-                  <div className="flex space-x-4">
+                  <div className="flex gap-x-4">
                     {socialLinks.map((social) => (
                       <motion.a
                         key={social.label}
@@ -193,6 +204,7 @@ export default function Contact() {
                     ))}
                   </div>
                 </div>
+                <div className="h-12 md:h-6"></div>
 
                 {/* Resume Download */}
                 <motion.div
@@ -212,11 +224,15 @@ export default function Contact() {
                   </a>
                 </motion.div>
               </div>
-            </AnimatedSection>
+            </motion.div>
 
             {/* Contact Form */}
-            <AnimatedSection direction="right">
-              <div className="card p-8">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="card p-8 lg:mt-24">
                 <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
 
                 {/* Status Message */}
@@ -337,7 +353,7 @@ export default function Contact() {
                   </motion.button>
                 </form>
               </div>
-            </AnimatedSection>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -345,46 +361,52 @@ export default function Contact() {
       {/* FAQ Section */}
       <section className="section-padding-xl">
         <div className="container-custom">
-          <AnimatedSection className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Frequently Asked <span className="gradient-text">Questions</span>
             </h2>
-          </AnimatedSection>
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              {
-                question: "What types of projects do you work on?",
-                answer:
-                  "I work on a wide range of projects including web applications, mobile apps, APIs, and full-stack solutions. I&apos;m particularly interested in projects involving React, Node.js, Python, and modern web technologies."
-              },
-              {
-                question: "Are you available for freelance work?",
-                answer:
-                  "Yes! I&apos;m open to freelance opportunities, especially during breaks from my studies. I&apos;m particularly interested in projects that allow me to learn new technologies and work with innovative teams."
-              },
-              {
-                question: "What&apos;s your preferred tech stack?",
-                answer:
-                  "I enjoy working with React/Next.js for frontend, Node.js/Express or Python/Django for backend, and various databases like MongoDB and PostgreSQL. However, I&apos;m always eager to learn and adapt to new technologies based on project requirements."
-              },
-              {
-                question: "How can we collaborate?",
-                answer:
-                  "I&apos;m open to various forms of collaboration including internships, part-time work, open source contributions, and project partnerships. Feel free to reach out through the contact form or email to discuss opportunities!"
-              }
-            ].map((faq, index) => (
-              <AnimatedSection
-                key={index}
-                delay={index * 0.1}
-                className="card p-6"
-              >
-                <h3 className="text-lg font-semibold mb-3 text-primary">
-                  {faq.question}
-                </h3>
-                <p className="text-muted leading-relaxed">{faq.answer}</p>
-              </AnimatedSection>
-            ))}
+          </motion.div>
+          <div className="w-full flex justify-center">
+            <div className="max-w-3xl mx-auto space-y-6">
+              {[
+                {
+                  question: "What types of projects do you work on?",
+                  answer:
+                    "I work on a wide range of projects including web applications, mobile apps, APIs, and full-stack solutions. I&apos;m particularly interested in projects involving React, Node.js, Python, and modern web technologies."
+                },
+                {
+                  question: "Are you available for freelance work?",
+                  answer:
+                    "Yes! I'm open to freelance opportunities, especially during breaks from my studies. I&apos;m particularly interested in projects that allow me to learn new technologies and work with innovative teams."
+                },
+                {
+                  question: "What's your preferred tech stack?",
+                  answer:
+                    "I enjoy working with React/Next.js for frontend, Node.js/Express or Python/Django for backend, and various databases like MongoDB and PostgreSQL. However, I&apos;m always eager to learn and adapt to new technologies based on project requirements."
+                },
+                {
+                  question: "How can we collaborate?",
+                  answer:
+                    "I'm open to various forms of collaboration including internships, part-time work, open source contributions, and project partnerships. Feel free to reach out through the contact form or email to discuss opportunities!"
+                }
+              ].map((faq, index) => (
+                <AnimatedSection
+                  key={index}
+                  delay={index * 0.1}
+                  className="card p-6"
+                >
+                  <h3 className="text-lg font-semibold mb-3 text-primary">
+                    {faq.question}
+                  </h3>
+                  <p className="text-muted leading-relaxed">{faq.answer}</p>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </div>
       </section>
