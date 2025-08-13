@@ -119,37 +119,10 @@ export default function Portfolio() {
         "Admin dashboard",
         "Analytics and reporting"
       ]
-    },
-    {
-      id: 6,
-      title: "Mobile Fitness Tracker",
-      description:
-        "A comprehensive fitness tracking mobile application with workout planning, progress monitoring, and social features. Built with React Native for cross-platform compatibility.",
-      image: "/work-3.png",
-      technologies: [
-        "React Native",
-        "Node.js",
-        "MongoDB",
-        "Express",
-        "Socket.io"
-      ],
-      category: "Mobile",
-      icon: Smartphone,
-      links: {
-        github: "#",
-        live: null
-      },
-      features: [
-        "Workout planning",
-        "Progress tracking",
-        "Social features",
-        "Cross-platform support",
-        "Real-time updates"
-      ]
     }
   ];
 
-  const categories = ["All", "Frontend", "Backend", "Full-Stack", "Mobile"];
+  const categories = ["All", "Frontend", "Backend", "Full-Stack"];
   const [selectedCategory, setSelectedCategory] = React.useState("All");
 
   const filteredProjects =

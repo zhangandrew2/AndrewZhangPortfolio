@@ -74,39 +74,36 @@ export default function About() {
         "Redis",
         "MySQL"
       ]
-    },
-    {
-      category: "Mobile Development",
-      icon: Smartphone,
-      technologies: [
-        "Swift",
-        "React Native",
-        "iOS Development",
-        "Android Basics"
-      ]
     }
   ];
 
   const experiences = [
+    {
+      company: "Hemut (YC X25)",
+      position: "Software Engineer",
+      period: "July 2025 - Present",
+      location: "Rockford, IL",
+      description: [
+        "Building AWS-hosted micro-services (FastAPI + PostgreSQL back-end, Next.js front-end) that power Hemut’s unified trucking \
+        management system(TMS): price quoting based off real time rates, optimized scheduling of drivers to loads, live progress tracking, \
+        accounting, and AI-driven document parsing, for carriers operating 200+ trucks across the U.S.",
+        "Automated dispatcher call handling with a real-time voice agent built on Twilio, OpenAI Whisper (multilingual speech-to-text), \
+        LLM-driven orchestration, and ElevenLabs TTS, integrated with PostgreSQL, Redis, S3, and Pinecone for contextual retrieval \
+        processing 1M+ events/day, cutting dispatcher administration time by 60%",
+        "Implemented a real-time load tracking system by integrating trucks’ Electronic Logging Devices (ELDs) with Google Maps API \
+        for geospatial visualization and WebSockets for live location updates, enabling dispatchers and customers to monitor shipments in \
+        transit with minimal latency"
+      ]
+    },
     {
       company: "Tailorflow AI",
       position: "Software Engineer Intern",
       period: "2024",
       location: "Remote",
       description: [
-        "Implemented dynamic nested routing with Next.js app router for the onboarding flow—using loading states, route guards, server-side rendering, and code-splitting—to improve page load times by 35% and decrease bounce rates by 15%.",
-        "Developed reusable UI components (dynamic checklists and progress tracking) with shadcn/ui for the chatbot interface and onboarding dashboard, boosting user engagement by 2x and reduced UI-related bug reports by 40%."
-      ]
-    },
-    {
-      company: "Reality AI Lab",
-      position: "Software Engineer Intern",
-      period: "2024",
-      location: "Los Angeles, CA",
-      description: [
-        "Integrated FastAPI endpoints with Google Cloud Vertex AI, boosting data throughput and reducing API response latency by 25%",
-        "Developed automatic outline-to-slide generator with Next.js, React, and jsPDF, completely eliminating manual slide creation time",
-        "Implemented advanced state management with Redux Toolkit onto Next.js/React front-end, reducing initial load times by 35%"
+        "Built FastAPI microservices for onboarding workflows; leveraged Redis for state management, reduced API latency by 40%",
+        "Developed AI chatbot interface with shadcn/ui (dynamic checklists and progress tracking), boosted user engagement by 2x and \
+        reduced UI-related bug reports by 40%."
       ]
     },
     {
@@ -115,20 +112,10 @@ export default function About() {
       period: "2023",
       location: "Remote",
       description: [
-        "Developed Python scripts integrated with OpenAI APIs to automate the processing of large datasets, increasing efficiency by 50%",
-        "Conducted validation tests with Jest and PyTest, achieving a 98% accuracy rate in data outputs generated from the AI-driven systems",
-        "Redesigned PostgreSQL queries and optimized query indexing to increase data retrieval speed by 30% across 10,000+ records"
-      ]
-    },
-    {
-      company: "UCLA Research Center",
-      position: "Student Researcher",
-      period: "2023",
-      location: "Los Angeles, CA",
-      description: [
-        "Researched and implemented deep learning techniques (Convolutional Neural Networks), improving image recognition accuracy by 25%",
-        "Preprocessed and normalized image datasets for training and test sets, enhancing the model's training efficiency by 120%",
-        "Optimized CNN models to improve autonomous navigation accuracy by 1.7x and optimized delivery efficiency by 1.5x"
+        "Optimized Python ETL pipelines (Pandas, SQLAlchemy) to ingest 10M+ records from APIs, normalize datasets, and load into \
+        PostgreSQL, achieving 50% faster processing compared to legacy scripts",
+        "Executed comprehensive validation suites using Jest and PyTest, ensuring 93% accuracy in LLM-processed outputs",
+        "Increased data retrieval performance by 30% across 10,000+ records through PostgreSQL query optimization and indexing"
       ]
     },
     {
@@ -137,9 +124,7 @@ export default function About() {
       period: "2022-2023",
       location: "Los Angeles, CA",
       description: [
-        "Developed a prototype app + website using HTML, CSS, JavaScript, and Swift, creating a functional demo capturing investor interest",
-        "Utilized Git version control to streamline workflows, cutting merge conflicts by 50% and expediting feature integration by 170%",
-        "Implemented real-time notifications and dynamic content updates, reducing data latency by 3x and boosting user engagement by 2.7x"
+        "Built cross-platform application (React, Tailwind CSS, SwiftUI) that secured investor interest and validated product viability"
       ]
     }
   ];
@@ -205,16 +190,17 @@ export default function About() {
                 </h1>
                 <div className="space-y-4 text-lg text-muted leading-relaxed">
                   <p>
-                    My name is Andrew Zhang and I am currently a junior majoring
-                    in Computer Science at the University of California, Los
-                    Angeles (UCLA). I am a dedicated and enthusiastic software
-                    engineer with a genuine passion for solving complex problems
-                    through innovative software solutions.
+                    My name is Andrew Zhang and I am currently a senior majoring
+                    in Mathematics of Computation at the University of
+                    California, Los Angeles (UCLA). I am a dedicated and
+                    enthusiastic software engineer with a genuine passion for
+                    solving complex problems through innovative software
+                    solutions.
                   </p>
                   <p>
                     My academic journey at UCLA has provided me with a solid
-                    foundation in computer science principles and has allowed me
-                    to hone my technical skills in various areas of software
+                    foundation in math and computer science principles, allowing
+                    me to hone my technical skills in various areas of software
                     development. Throughout my time as a student, I have had the
                     opportunity to work on a variety of projects that have
                     further developed my skills, expanded my knowledge base, and
